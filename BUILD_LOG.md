@@ -174,3 +174,24 @@
 - **Problems / Errors**: Nenhum erro encontrado.
 - **Fixes Attempted**: N/A.
 - **Current Status**: Completed.
+
+## Entry 10 - Análise do Código, Elaboração e Revisor do Questionário de Engenharia Reversa
+
+- **Prompt / Request**: Realizar a engenharia reversa do código-fonte do aplicativo `todo-list-expo`, responder às 8 perguntas do questionário em português brasileiro no arquivo `QUESTIONNAIRE.md`, revisar e refinar as respostas garantindo precisão absoluta com o código e com o `BUILD_LOG.md`, sem alterar os arquivos de implementação da aplicação nem realizar git commit/push.
+- **Decision Summary**:
+  - **Rigor no Mapeamento do Código Real**: Análise fundamentada na inspeção direta dos arquivos de código (`src/app/`, `src/components/`, `src/database/`, `src/repositories/`, `src/services/`, `src/types/`, `src/context/`) e do histórico de desenvolvimento do `BUILD_LOG.md`.
+  - **Precisão das Especificações**:
+    - Confirmação da fórmula exata de geração de ID em `taskRepository.ts` e `categoryRepository.ts`: `Date.now().toString() + Math.random().toString(36).substring(2, 6)`.
+    - Especificação do nome exato do parâmetro da rota de edição (`id`), lido em `src/app/task/[id].tsx` via `useLocalSearchParams<{ id: string }>()`, e das chamadas exatas `router.push('/task/new')`, `router.push(/task/${item.id})` e `router.push('/categories')`.
+    - Diferenciação clara entre o que foi validado (análise estática de tipos `npx tsc --noEmit` sem erros e inspeção lógica) e o que não foi executado em runtime físico (disparo do alerta/som no dispositivo no segundo exato do vencimento).
+    - Descrição precisa dos 2 erros de tipagem CSS (TS2307 e TS2882) herdados do template original, registrando que a primeira abordagem (Entry 1) foi adiar a correção e a solução final (Entry 3) foi a criação do `src/types/css.d.ts`.
+  - **Preservação do Código-Fonte**: Nenhum arquivo da pasta `src/` ou arquivo de configuração da aplicação foi modificado nesta etapa. Todas as entradas anteriores do `BUILD_LOG.md` foram preservadas na íntegra.
+- **Actions Performed**:
+  - Inspeção e cruzamento detalhado entre o código-fonte, o histórico do `BUILD_LOG.md` e a documentação `QUESTIONNAIRE.md`.
+  - Atualização e refinamento do arquivo [`QUESTIONNAIRE.md`](file:///C:/Users/aluno.lab03/todo-list-expo/QUESTIONNAIRE.md) na raiz do projeto.
+  - Atualização da Entry 10 do [`BUILD_LOG.md`](file:///C:/Users/aluno.lab03/todo-list-expo/BUILD_LOG.md).
+  - Execução da verificação de tipos via terminal com `npx tsc --noEmit`.
+- **Result**: Questionário de Engenharia Reversa e histórico de desenvolvimento minuciosamente validados e atualizados.
+- **Problems / Errors**: Nenhum erro de compilação ou de tipagem encontrado (0 erros de TypeScript).
+- **Fixes Attempted**: N/A.
+- **Current Status**: Completed.
